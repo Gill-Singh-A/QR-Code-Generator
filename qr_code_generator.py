@@ -43,5 +43,6 @@ if __name__ == "__main__":
 				display('-', f"Error while reading file {Back.MAGENTA}{data.load}{Back.RESET}")
 	qr_code_image = qrcode.make(data.data)
 	if not data.save:
-		data.save = f"{date.today()}_{get_time()}.png"
+		current_time = str(strftime("%H_%M_%S", localtime()))
+		data.save = f"{date.today()} {current_time}.png"
 	qr_code_image.save(data.save)
